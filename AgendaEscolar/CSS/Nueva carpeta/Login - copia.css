@@ -1,0 +1,114 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: url(../Complementos/Imagenes/fondo2.jpg)  no-repeat center center fixed;
+    background-size: cover;
+    font-family:cursive;
+    height: 100vh;
+}
+
+.divLogin {
+    width: 370px;
+    height: 450px;
+    background-image: linear-gradient(to bottom right, rgba(43,64,106,.80), rgba(0,108,155,.80), rgba(0,157,203,.80),  rgba(255,255,255,.80));
+    color: white;
+    top: 20%;
+    left: 36%;
+    position: absolute;
+    box-sizing: border-box;
+    padding: 50px 100px 50px 85px;
+    border-radius: 30px;
+    text-shadow: -1px -1px 1px #000;
+}
+
+
+.logo {
+    width: 145px;
+    height: 130px;
+    position: absolute;
+    top: -90px;
+    left: 30%;
+}
+
+h1 {
+    margin: 0;
+    padding: 0 20px;
+    text-align: center;
+    font-size: 22px;
+    font-family:"Times New Roman";
+}
+
+label {
+    margin: 15px 0px 5px 0px;
+    padding: 0;
+    font-weight: bold;
+    display: block;
+    font-size: 20px;
+    color: rgb(240,240,240);
+    font-family:Times New Roman;
+
+}
+
+input {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+input[type="text"], input[type="password"] {
+    border: none;
+    border-bottom: 1px solid white;
+    background: transparent;
+    outline: none;
+    height: 20px;
+    color: black;
+    font-size: 16px;
+    padding: 0px 0px 5px 10px;
+}
+
+
+input[type="submit"]{
+    border: 0px;
+    outline: none;
+    height: 40px;
+    background: rgb(73, 160, 52);
+    color: white;
+    font-size: 18px;
+    border-radius: 10px;
+    margin-left: 18%;
+    border: white 2px inset;
+    font-family:Times New Roman;
+    text-shadow: -1px -1px 1px #000;
+    width: 150px;
+}
+
+input[type="submit"]:hover {
+    background: rgb(255,217,61);
+    color: white;
+}
+
+.cont{
+    background-color: rgba(255,255,255,0.2);
+    width: 100%;
+    height: 100%;
+}
+
+.registrar{
+    border: 0px;
+    outline: none;
+    height: 35px;
+    background: rgb(100, 194, 78);
+    color: white;
+    font-size: 13px;
+    border-radius: 10px;
+    margin-left: 34%;
+    border: white 2px inset;
+    font-family:"AR BLANCA";
+    text-shadow: -1px -1px 1px #000;
+    width: 90px;
+}
+
+.registrar:hover{
+    background: rgb(255,222,85);
+    color: white;
+}
+

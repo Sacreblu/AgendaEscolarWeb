@@ -1,0 +1,82 @@
+.item{
+	text-decoration: none;
+	display:contents;
+	margin: 0px;
+	padding: 0px;
+}
+
+.menuBar{
+	background-image: linear-gradient(to bottom right, rgba(0,166,15,.9), rgba(0,166,15,.9),  rgba(100, 194, 78,.9), rgba(100, 194, 78,.9), rgba(255, 255, 255,.9));
+	text-decoration:none;
+    display:block;
+    margin: 32px 0px 0px 0px;
+    width: 100px;
+    height: auto;
+    padding: 0px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border: blue 8px inset;
+    border-color: rgb(43,64,106);
+    border-left-width: 0px;
+    position: fixed;
+}
+
+#uno, #dos, #tres, #cuatro, #cinco, #seis{
+	display: none;
+}
+
+.menuBar ul{
+	margin: 0px;
+	padding: 0px;
+}
+
+.item1, .item2{
+	margin: 15px 0px 0px 14px;
+}
+
+.item3{
+	margin: 17px 0px 0px 12px;
+}
+
+.item4{
+	margin: 15px 0px 0px 10px;
+}
+
+.item5{
+	margin: 15px 0px 0px 14px;
+}
+
+.item6, .item0{
+	margin: 15px 0px 11px 17px;
+}
+
+.item1:hover, .item2:hover{
+	height: 71px;
+	width: 76px;
+	margin: 12px -3px -3px 11px;
+}
+
+.item3:hover{
+	height: 76px;
+	width: 81px;
+	margin: 14px -3px -3px 9px;
+}
+
+.item4:hover{
+	height: 76px;
+	width: 78px;
+	margin: 12px -3px -3px 7px;
+}
+
+.item5:hover{
+	height: 76px;
+	width: 76px;
+	margin: 12px -3px -3px 11px;
+}
+
+.item6:hover{
+	height: 76px;
+	width: 76px;
+	margin: 12px -3px 9px 14px;
+}
+

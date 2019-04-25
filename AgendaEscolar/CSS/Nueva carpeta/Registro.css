@@ -1,0 +1,114 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: url(../Complementos/Imagenes/fondoLog.jpg) no-repeat center center fixed;
+    background-size: cover;
+    font-family:cursive;
+    -webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+}
+
+.divLogin {
+    width: 370px;
+    height: auto;
+    background-image: linear-gradient(to bottom right, rgba(0,70,6,.9), rgba(0,166,15,.9),  rgba(255,255,255,.9));
+    color: white;
+    top: 0%;
+    left: 0%;
+    box-sizing: border-box;
+    padding: 50px 100px 10px 85px;
+    text-shadow: -1px -1px 1px #000;
+    position:absolute;
+}
+
+
+.logo {
+    width: 145px;
+    height: 130px;
+    position: absolute;
+    top: 10px;
+    left: 30%;
+}
+
+.back{
+    width: 45px;
+    height: 45px;
+    float: left;
+    position:absolute;
+    margin: 50px 0px 0px 25px;
+}
+
+h1 {
+    margin-top: 95px;
+    padding: 0 20px;
+    text-align: center;
+    font-size: 22px;
+    font-family:"Times New Roman";
+    width: 250px;
+    margin-left: -45px;
+}
+
+label {
+    margin: 15px 0px 5px 0px;
+    padding: 0;
+    font-weight: bold;
+    display: block;
+    font-size: 20px;
+    color: rgb(240,240,240);
+    font-family:Times New Roman;
+    width: 250px;
+
+}
+
+input {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+input[type="text"], input[type="password"] {
+    border: none;
+    border-bottom: 1px solid white;
+    background: transparent;
+    height: 20px;
+    color: black;
+    font-size: 16px;
+    padding: 0px 0px 5px 10px;
+    margin: 0px;
+}
+
+
+input[type="submit"]{
+    border: 0px;
+    height: 40px;
+    background: rgb(43,64,106);
+    color: white;
+    font-size: 18px;
+    border-radius: 10px;
+    margin-left: 12%;
+    border: white 2px inset;
+    font-family:Times New Roman;
+    text-shadow: -1px -1px 1px #000;
+    width: 150px;
+}
+
+input[type="submit"]:hover {
+    background: rgb(255,217,61);
+    color: white;
+}
+
+
+
+.form{
+    height: auto;
+    margin-bottom: 1%;
+    margin-top: 5%;
+}
+
+.advertencias{
+    color: red;
+    font-size: 14px;
+    text-shadow: -1px -1px 1px #000;
+    width: 250px; 
+}

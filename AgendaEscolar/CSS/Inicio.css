@@ -1,0 +1,48 @@
+body {
+	background-image: url('../Complementos/Imagenes/fondoinicio.jpg');
+    margin: 0px;
+    padding: 0px;
+    background-size: cover;
+}
+
+#calendario{
+	background-color: transparent;
+	height: auto;
+	padding-top: 65px;
+	margin: 0px;
+}
+
+#horario{
+	background-color: transparent;
+	height: auto;
+	padding-top: 60px;
+	margin: 0px;
+}
+
+ #contenedor{
+ 	margin: 0px;
+ }
+
+ @media screen and (max-width: 399px) {
+	#calendario{
+		padding-top: 28px;
+	}
+	
+	#horario{
+		padding-left: 0px;
+		padding-right: 0px;
+		padding-top: 100%;
+		height: auto;
+	}
+
+}
+
+@media screen and (max-width: 349px) {
+	#horario{
+		padding-left: 0px;
+		padding-right: 0px;
+		padding-top: 5%;
+		height: auto;
+	}
+
+}

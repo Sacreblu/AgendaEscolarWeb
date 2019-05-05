@@ -117,9 +117,11 @@ vertical-align: middle;
     color: rgb(35,111,33);
 } 
 
-#clases{
+#table-box{
     background-color: rgba(255,255,255,0.3);
     margin: 0px;
+    max-height: 463px;
+    overflow-y: auto;
 }
 
 tbody{
@@ -130,6 +132,12 @@ table th{
     background: linear-gradient(to bottom, rgb(24,82,157), rgb(59,89,152), rgb(29,45,79));
     color: white;
     border: 1px solid white;
+    position: sticky;
+    top: 0px;
+}
+thead tr{
+    position: sticky;
+    top: 0px;
 }
 
 #btnMaterias{
@@ -141,7 +149,7 @@ table th{
 .carusel{
     display: none;
 }
-@media screen and (max-width: 399px) {
+@media screen and (max-width: 400px) {
     .span7{
         padding: 0px;
         display: none;
@@ -150,6 +158,8 @@ table th{
     #dias td{
         height: auto;
         font-size: 20px;
+        background: white;
+        color: rgb(15,168,88);
     }
 
     #dias th{
@@ -159,4 +169,8 @@ table th{
     .carusel{
         display: initial;
     }
+}
+
+#dias .vacio{
+    background: rgba(0,0,0,0.0);
 }

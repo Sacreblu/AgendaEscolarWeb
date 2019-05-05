@@ -184,7 +184,7 @@
       $.post('PHP/ValidarCuenta.php', {postUser: username, postPass: password},
         function(data){
           if(data==1){
-            location.href='HTML/Inicio.php'
+            location.href='HTML/Inicio.php';
           }
           else{
             $(function(){

@@ -1,5 +1,5 @@
 #tabla{
-	padding:110px 10px 0px 10px;
+	padding:95px 10px 0px 10px;
 	text-align: center;
 }
 
@@ -98,9 +98,31 @@ a.boxclose3{
 	-khtml-border-top-right-radius: 20px;
 }
 
+.cuerpoTabla{
+	height: 423px;
+	overflow: auto;
+}
+
 @media screen and (max-width: 480px) {
 	.box3{
 		left:5%;
 		right:5%;
 	}
+}
+
+.panel, .table{
+	margin: 0px;
+}
+
+.table-box{
+	max-height: 471px;
+	overflow-y: auto;
+	font-size: 16px;
+}
+
+th{
+	position: sticky;
+    top: 0px;
+    background: white;
+    height: 48px;
 }

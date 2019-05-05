@@ -23,14 +23,20 @@
 		<aside id="sidebar" class="sidebar sidebar-fixed-left" role="navigation">
 			<!-- Sidebar header -->
 			<div class="sidebar-header header-cover" style="background-image: url(../Complementos/Imagenes/Cabecera.jpg);">
-				<!-- Sidebar brand image -->
+			<?php
+				$query = 'SELECT Nombre, Apellidos, FotoPerfil FROM usuarios WHERE NombreUsuario="'.$username.'"';
+                $result = mysqli_query($con, $query) or die('Consulta fallida: ' . mysqli_error($con));
+                $row = mysqli_fetch_assoc($result);
+                echo '
 				<div class="sidebar-image">
-					<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/53474/atom_profile_01.jpg">
+					<img src="..'.$row['FotoPerfil'].'">
 				</div>
-				<!-- Sidebar brand name -->
+
 				<a data-toggle="dropdown" class="sidebar-brand">
-					<p id="UserName">Alan David Amox Zuñiga</p>
+					<p id="UserName">'.$row['Nombre'].' '.$row['Apellidos'].'</p>
 				</a>
+                ';
+			?>			
 			</div>
 
 			<!-- Sidebar navigation -->
@@ -43,7 +49,7 @@
 					</a>
 				</li>
 				<li>
-					<a class="opc" href="#">
+					<a class="opc" href="../HTML/Perfil.php">
 						<img id="iconno" src="../Complementos/Imagenes/Perfil.png">
 						Perfil
 					</a>
@@ -256,36 +262,6 @@ function openMenu(){
 
 
 }
-
-/*$(document).ready(function() {
-    var overlay = $('.sidebar-overlay');
-
-    $('.sidebar-toggle').click(function() {
-        var sidebar = $('#sidebar');
-        sidebar.toggleClass('open');
-        if ((sidebar.hasClass('sidebar-fixed-left') || sidebar.hasClass('sidebar-fixed-right')) && sidebar.hasClass('open')) {
-            overlay.addClass('active');
-        } else {
-            overlay.removeClass('active');
-        }
-    });
-
-    overlay.on('click', function() {
-        $(this).removeClass('active');
-        $('#sidebar').removeClass('open');
-    });
-
-});*/
-
-// Sidebar constructor
-//
-// -------------------
-
-/**
- * Created by Kupletsky Sergey on 08.09.14.
- *
- * Add JQuery animation to bootstrap dropdown elements.
- */
 
 (function($) {
     var dropdown = $('.dropdown');

@@ -15,7 +15,7 @@ body {
 #horario{
 	background-color: transparent;
 	height: auto;
-	padding-top: 60px;
+	padding-top: 80px;
 	margin: 0px;
 }
 
@@ -37,12 +37,14 @@ body {
 
 }
 
-@media screen and (max-width: 349px) {
+@media screen and (max-width: 399px) {
 	#horario{
 		padding-left: 0px;
 		padding-right: 0px;
-		padding-top: 5%;
+		padding-top: 15%;
 		height: auto;
 	}
-
+	#calendario{
+		display: none;
+	}
 }

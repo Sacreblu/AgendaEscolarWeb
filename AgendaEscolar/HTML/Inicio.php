@@ -50,9 +50,9 @@ $username = $_SESSION['usuario'];
               <a href="../HTML/addMateria.php"><button id="btnMaterias" type="button" class="btn btn-default">Materias</button></a>
             </div> <!-- /widget-header -->
 
-            <div id="clases" class="row">
+            <div id="table-box" class="row">
               <div id="dias" class="col-md-2">
-                <table class="table table-striped table-bordered">
+                <table class="table">
                   <thead>
                     <tr>
                       <th>Lunes</th>
@@ -62,20 +62,31 @@ $username = $_SESSION['usuario'];
                   <?php
                     $query = 'SELECT * FROM Horario WHERE NombreUsuario="'.$username.'" AND Dia="Lunes" ORDER By HrInicio asc';
                     $result = mysqli_query($con, $query) or die('Consulta fallida: ' . mysqli_error($con));
-                    while($row = mysqli_fetch_assoc($result)){
-                      $horaFin=$row['HrFin']-1;
-                      echo "  
+                    $row = mysqli_fetch_assoc($result);
+                    if (empty($row)){
+                      echo "<tr><td class='vacio'></td</tr>";
+                    }
+                    else{
+                      $cadenaTabla = "  
                         <tr>
-                          <td style='vertical-align:middle;'><b>".$row['Materia']."</b><br>Aula ".$row['Lugar']."<br>".$row['HrInicio'].":00 - ".$horaFin.":59</td>
+                        <td style='vertical-align:middle;'><b>".$row['Materia']."</b><br>Aula ".$row['Lugar']."<br>".$row['HrInicio'].":00 - ".$horaFin.":59</td>
                         </tr>";
-                    };
+                        while($row = mysqli_fetch_assoc($result)){
+                          $horaFin=$row['HrFin']-1;
+                          $cadenaTabla=$cadenaTabla."  
+                          <tr>
+                          <td style='vertical-align:middle;'><b>".$row['Materia']."</b><br>Aula ".$row['Lugar']."<br>".$row['HrInicio'].":00 - ".$horaFin.":59</td>
+                          </tr>";
+                        };
+                        echo $cadenaTabla;
+                    }
                   ?>
                   </tbody>
                 </table>
               </div>
 
               <div id="dias" class="col-md-2">
-                <table class="table table-striped table-bordered">
+                <table class="table">
                   <thead>
                     <tr>
                       <th>Martes</th>
@@ -85,20 +96,31 @@ $username = $_SESSION['usuario'];
                   <?php
                     $query = 'SELECT * FROM Horario WHERE NombreUsuario="'.$username.'" AND Dia="Martes" ORDER By HrInicio asc';
                     $result = mysqli_query($con, $query) or die('Consulta fallida: ' . mysqli_error($con));
-                    while($row = mysqli_fetch_assoc($result)){
-                      $horaFin=$row['HrFin']-1;
-                      echo "  
+                    $row = mysqli_fetch_assoc($result);
+                    if (empty($row)){
+                      echo "<tr><td class='vacio'></td</tr>";
+                    }
+                    else{
+                      $cadenaTabla = "  
                         <tr>
-                          <td style='vertical-align:middle;'><b>".$row['Materia']."</b><br>Aula ".$row['Lugar']."<br>".$row['HrInicio'].":00 - ".$horaFin.":59</td>
+                        <td style='vertical-align:middle;'><b>".$row['Materia']."</b><br>Aula ".$row['Lugar']."<br>".$row['HrInicio'].":00 - ".$horaFin.":59</td>
                         </tr>";
-                    };
+                        while($row = mysqli_fetch_assoc($result)){
+                          $horaFin=$row['HrFin']-1;
+                          $cadenaTabla=$cadenaTabla."  
+                          <tr>
+                          <td style='vertical-align:middle;'><b>".$row['Materia']."</b><br>Aula ".$row['Lugar']."<br>".$row['HrInicio'].":00 - ".$horaFin.":59</td>
+                          </tr>";
+                        };
+                        echo $cadenaTabla;
+                    }
                   ?>
                   </tbody>
                 </table>
               </div>
 
               <div id="dias" class="col-md-2">
-                <table class="table table-striped table-bordered">
+                <table class="table">
                   <thead>
                     <tr>
                       <th>Miércoles</th>
@@ -108,20 +130,31 @@ $username = $_SESSION['usuario'];
                   <?php
                     $query = 'SELECT * FROM Horario WHERE NombreUsuario="'.$username.'" AND Dia="Miercoles" ORDER By HrInicio asc';
                     $result = mysqli_query($con, $query) or die('Consulta fallida: ' . mysqli_error($con));
-                    while($row = mysqli_fetch_assoc($result)){
-                      $horaFin=$row['HrFin']-1;
-                      echo "  
+                    $row = mysqli_fetch_assoc($result);
+                    if (empty($row)){
+                      echo "<tr><td class='vacio'></td</tr>";
+                    }
+                    else{
+                      $cadenaTabla = "  
                         <tr>
-                          <td style='vertical-align:middle;'><b>".$row['Materia']."</b><br>Aula ".$row['Lugar']."<br>".$row['HrInicio'].":00 - ".$horaFin.":59</td>
+                        <td style='vertical-align:middle;'><b>".$row['Materia']."</b><br>Aula ".$row['Lugar']."<br>".$row['HrInicio'].":00 - ".$horaFin.":59</td>
                         </tr>";
-                    };
+                        while($row = mysqli_fetch_assoc($result)){
+                          $horaFin=$row['HrFin']-1;
+                          $cadenaTabla=$cadenaTabla."  
+                          <tr>
+                          <td style='vertical-align:middle;'><b>".$row['Materia']."</b><br>Aula ".$row['Lugar']."<br>".$row['HrInicio'].":00 - ".$horaFin.":59</td>
+                          </tr>";
+                        };
+                        echo $cadenaTabla;
+                    }
                   ?>
                   </tbody>
                 </table>
               </div>
 
               <div id="dias" class="col-md-2">
-                <table class="table table-striped table-bordered">
+                <table class="table">
                   <thead>
                     <tr>
                       <th>Jueves</th>
@@ -131,20 +164,31 @@ $username = $_SESSION['usuario'];
                   <?php
                     $query = 'SELECT * FROM Horario WHERE NombreUsuario="'.$username.'" AND Dia="Jueves" ORDER By HrInicio asc';
                     $result = mysqli_query($con, $query) or die('Consulta fallida: ' . mysqli_error($con));
-                    while($row = mysqli_fetch_assoc($result)){
-                      $horaFin=$row['HrFin']-1;
-                      echo "  
+                    $row = mysqli_fetch_assoc($result);
+                    if (empty($row)){
+                      echo "<tr><td class='vacio'></td</tr>";
+                    }
+                    else{
+                      $cadenaTabla = "  
                         <tr>
-                          <td style='vertical-align:middle;'><b>".$row['Materia']."</b><br>Aula ".$row['Lugar']."<br>".$row['HrInicio'].":00 - ".$horaFin.":59</td>
+                        <td style='vertical-align:middle;'><b>".$row['Materia']."</b><br>Aula ".$row['Lugar']."<br>".$row['HrInicio'].":00 - ".$horaFin.":59</td>
                         </tr>";
-                    };
+                        while($row = mysqli_fetch_assoc($result)){
+                          $horaFin=$row['HrFin']-1;
+                          $cadenaTabla=$cadenaTabla."  
+                          <tr>
+                          <td style='vertical-align:middle;'><b>".$row['Materia']."</b><br>Aula ".$row['Lugar']."<br>".$row['HrInicio'].":00 - ".$horaFin.":59</td>
+                          </tr>";
+                        };
+                        echo $cadenaTabla;
+                    }
                   ?>
                   </tbody>
                 </table>
               </div>
 
               <div id="dias" class="col-md-2">
-                <table class="table table-striped table-bordered">
+                <table class="table">
                   <thead>
                     <tr>
                       <th>Viernes</th>
@@ -154,20 +198,31 @@ $username = $_SESSION['usuario'];
                   <?php
                     $query = 'SELECT * FROM Horario WHERE NombreUsuario="'.$username.'" AND Dia="Viernes" ORDER By HrInicio asc';
                     $result = mysqli_query($con, $query) or die('Consulta fallida: ' . mysqli_error($con));
-                    while($row = mysqli_fetch_assoc($result)){
-                      $horaFin=$row['HrFin']-1;
-                      echo "  
+                    $row = mysqli_fetch_assoc($result);
+                    if (empty($row)){
+                      echo "<tr><td class='vacio'></td</tr>";
+                    }
+                    else{
+                      $cadenaTabla = "  
                         <tr>
-                          <td style='vertical-align:middle;'><b>".$row['Materia']."</b><br>Aula ".$row['Lugar']."<br>".$row['HrInicio'].":00 - ".$horaFin.":59</td>
+                        <td style='vertical-align:middle;'><b>".$row['Materia']."</b><br>Aula ".$row['Lugar']."<br>".$row['HrInicio'].":00 - ".$horaFin.":59</td>
                         </tr>";
-                    };
+                        while($row = mysqli_fetch_assoc($result)){
+                          $horaFin=$row['HrFin']-1;
+                          $cadenaTabla=$cadenaTabla."  
+                          <tr>
+                          <td style='vertical-align:middle;'><b>".$row['Materia']."</b><br>Aula ".$row['Lugar']."<br>".$row['HrInicio'].":00 - ".$horaFin.":59</td>
+                          </tr>";
+                        };
+                        echo $cadenaTabla;
+                    }
                   ?>
                   </tbody>
                 </table>
               </div>
 
               <div id="dias" class="col-md-2">
-                <table class="table table-striped table-bordered">
+                <table class="table">
                   <thead>
                     <tr>
                       <th>Sábado</th>
@@ -177,13 +232,24 @@ $username = $_SESSION['usuario'];
                   <?php
                     $query = 'SELECT * FROM Horario WHERE NombreUsuario="'.$username.'" AND Dia="Sabado" ORDER By HrInicio asc';
                     $result = mysqli_query($con, $query) or die('Consulta fallida: ' . mysqli_error($con));
-                    while($row = mysqli_fetch_assoc($result)){
-                      $horaFin=$row['HrFin']-1;
-                      echo "  
+                    $row = mysqli_fetch_assoc($result);
+                    if (empty($row)){
+                      echo "<tr><td class='vacio'></td</tr>";
+                    }
+                    else{
+                      $cadenaTabla = "  
                         <tr>
-                          <td style='vertical-align:middle;'><b>".$row['Materia']."</b><br>Aula ".$row['Lugar']."<br>".$row['HrInicio'].":00 - ".$horaFin.":59</td>
+                        <td style='vertical-align:middle;'><b>".$row['Materia']."</b><br>Aula ".$row['Lugar']."<br>".$row['HrInicio'].":00 - ".$horaFin.":59</td>
                         </tr>";
-                    };
+                        while($row = mysqli_fetch_assoc($result)){
+                          $horaFin=$row['HrFin']-1;
+                          $cadenaTabla=$cadenaTabla."  
+                          <tr>
+                          <td style='vertical-align:middle;'><b>".$row['Materia']."</b><br>Aula ".$row['Lugar']."<br>".$row['HrInicio'].":00 - ".$horaFin.":59</td>
+                          </tr>";
+                        };
+                        echo $cadenaTabla;
+                    }
                   ?>
                   </tbody>
                 </table>

@@ -235,7 +235,16 @@ body {
   -webkit-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
+  border: 3px solid white;
 }
+
+@supports(object-fit: cover){
+    .sidebar-image img {
+      object-fit: cover;
+      object-position: center center;
+    }
+}
+
 .sidebar .sidebar-brand {
   position: absolute;
   bottom: 0;

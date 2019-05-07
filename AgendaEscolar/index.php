@@ -128,7 +128,7 @@
                   </div> <!-- form-group end.// -->
                   <div id="inpt5" class="col-ms-12 col-md-6 form-group">
                     <label>Confirmar contraseña</label>
-                    <input type="password" class="form-control" id="pass2" name="pass2" pattern="[A-Za-z0-9 ñ]{8,16}" maxlength="16">
+                    <input type="password" class="form-control" id="pass2" name="pass2" onblur="validarPassword()" pattern="[A-Za-z0-9 ñ]{8,16}" maxlength="16">
                     <p class="advertencias" id="mensajePass2"></p>
                   </div> <!-- form-group end.// -->
                 </div> <!-- form-row end.// --> 

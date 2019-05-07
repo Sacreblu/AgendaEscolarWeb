@@ -55,7 +55,7 @@
 					</a>
 				</li>
 				<li>
-					<a class="opc" href="#">
+					<a class="opc" href="../HTML/Contactos.php">
 						<img id="iconno" src="../Complementos/Imagenes/Contactos.png">
 						Contactos
 					</a>

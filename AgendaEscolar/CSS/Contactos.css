@@ -1,0 +1,136 @@
+body{
+	background: url("../Complementos/Imagenes/fondoinicio.jpg") no-repeat center center fixed;
+	background-size: cover;
+}
+
+.contenedor{
+	padding-top: 5%;
+}
+
+.row{
+	margin: 0;
+}
+
+.row-centered{
+	text-align:center;
+}
+
+.col-centered{
+	display:inline-block;
+    float:none;
+    /* reset the text-align */
+    text-align:left;
+    /* inline-block space fix */
+    text-align: center;
+}
+
+.listaAmigos{ 
+	/*border: 1px solid black; */
+	max-height: 550px; 
+	margin: 0; 
+	padding: 0; 
+}
+
+.titulo h3{
+	margin: 0px;
+	padding: 10px 0 10px 0;
+	color: rgb(31,153,57);
+	background: white;
+	border-radius: 10px;
+	border: 3px solid;
+	border-bottom-color: rgb(31,153,57);
+	border-left-color: rgb(31,153,57);
+	border-top-color: rgb(51, 189, 81);
+	border-right-color: rgb(51, 189, 81);
+}
+
+.amigos{
+	margin-top: 5px;
+	max-height: 489px;
+	overflow-y: auto;
+	display: flex;
+    align-items: center;
+}
+
+.divAmigos{
+	max-height: 489px;
+	overflow-y: auto;
+	border-top-left-radius: 15px;
+	border-bottom-left-radius: 15px;
+}
+
+.divAmigosCel{
+	display: none;
+}
+
+.panel{
+	padding: 0;
+}
+
+.envoltura{
+	padding: 10px 8px 0px 8px;
+}
+
+.info h3{
+	margin-top: 10px;
+}
+
+.info{
+	padding: 0px;
+}
+
+hr{
+	margin: 10px 0px 10px 0px;
+}
+
+.panel-heading h5{
+	margin: 0;
+	color: white;
+}
+
+.panel-heading{
+	background-image: linear-gradient(to bottom right, rgb(40, 61, 86), rgb(59, 89, 152), rgb(61,98,176), rgb(91,134,224));
+}
+
+#profile-image1{
+	width: 86px;
+	height: 86px;
+	border-radius: 50%;
+}
+
+@supports(object-fit: cover){
+    #profile-image1{
+      object-fit: cover;
+      object-position: center center;
+    }
+}
+
+.Contactos{
+	border: 1px solid black; 
+	background: blue;
+	max-height: 550px;
+	margin: 0;
+	padding: 0;
+}
+
+@media screen and (max-width: 399px) {
+	.listaAmigos{
+		max-height: 250px;
+	}
+
+  .divAmigos{
+  	display: none;
+  }
+  .divAmigosCel{
+  	display: block;
+	max-height: 200px;
+	height: 200px;
+	overflow-y: auto;
+	border-top-left-radius: 15px;
+	border-bottom-left-radius: 15px;
+  }
+  .contenedor{
+  	padding-top: 70px;
+  }
+
+}

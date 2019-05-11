@@ -54,6 +54,7 @@ body{
 
 .divAmigos{
 	max-height: 489px;
+	height: 489px;
 	overflow-y: auto;
 	border-top-left-radius: 15px;
 	border-bottom-left-radius: 15px;
@@ -65,6 +66,7 @@ body{
 
 .panel{
 	padding: 0;
+	margin-bottom: 0px;
 }
 
 .envoltura{
@@ -103,14 +105,115 @@ hr{
       object-fit: cover;
       object-position: center center;
     }
+
+    .minImg{
+      object-fit: cover;
+      object-position: center center;
+    }
 }
 
 .Contactos{
-	border: 1px solid black; 
-	background: blue;
 	max-height: 550px;
 	margin: 0;
+	padding: 0 30px 0 30px;
+}
+
+.titulo2 h4{
+	margin: 0px;
+	padding: 5px 0 5px 0;
+	color: rgb(241,195,39);
+	background: white;
+	border-radius: 10px;
+	border: 3px solid;
+	border-bottom-color: rgb(241,195,39);
+	border-left-color: rgb(241,195,39);
+	border-top-color: rgb(240, 212, 81);
+	border-right-color: rgb(240, 212, 81);
+}
+
+.titulo3 h4{
+	margin: 0px;
+	padding: 5px 0 5px 0;
+	color: rgb(0,170,121);
+	background: white;
+	border-radius: 10px;
+	border: 3px solid;
+	border-bottom-color: rgb(0,170,121);
+	border-left-color: rgb(0,170,121);
+	border-top-color: rgb(0, 219, 156);
+	border-right-color: rgb(0, 219, 156);
+}
+
+.glyphicon {
+	display: block;
+}
+
+.srch{
+	padding:8px;
+	padding-top: 6px;
+	border-radius: 50%;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.searchB{
+	margin-top: 8px;
+}
+
+
+.searchB input[type="text"]{
+	display: inline;
+	width: 70%;
+	-moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        border-radius: 10px; 
+}
+.Resultados{
+	padding: 0 40px 0 40px;
+	max-height: 183px;
+	overflow-y: auto;
+}
+
+.well{
+	margin-top: 10px;
+	margin-bottom: 0px;
+	border-radius: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.media p{
+	margin: 0;
 	padding: 0;
+	font-size: 13px;
+}
+
+.media-body h4{
+	margin-bottom: 2px; 
+}
+
+.media{
+	display: flex;
+	align-items: center;
+}
+
+.minImg{
+	border-radius: 50%;
+	width: 60px;
+	height: 60px;
+}
+
+.imgn{
+	padding: 0;
+}
+
+.BuscarAimgos{
+	height: 290px;
+}
+
+.Solicitudes{
+	height: 250px;
 }
 
 @media screen and (max-width: 399px) {

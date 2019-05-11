@@ -21,7 +21,8 @@ $username = $_SESSION['usuario'];
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
     <link href="../CSS/MenuCSS.css" rel="stylesheet">
     <link href="../CSS/Contactos.css" rel="stylesheet">
@@ -51,26 +52,26 @@ $username = $_SESSION['usuario'];
     					if($cont==1){
     						echo $InicioRow;
     					}
-    					echo '  
-    					<div class="col-sm-12 col-md-6 envoltura">
-	    					<div class="panel panel-default">
-	    						<div class="panel-heading">  <h5>Perfil</h5></div>
-	    						<div class="panel-body">
-	    							<div class=col-xs-4 "col-md-4 foto">
-	    								<img src="..'.$row['FotoPerfil'].'" id="profile-image1" >
-	    								<button type="button"style="margin-top: 10px" class="btn btn-danger btn-xs">Eliminar</button> 
+    					echo "  
+    					<div class='col-sm-12 col-md-6 envoltura'>
+	    					<div class='panel panel-default'>
+	    						<div class='panel-heading'>  <h5>Perfil</h5></div>
+	    						<div class='panel-body'>
+	    							<div class='col-xs-4 col-md-4 foto'>
+	    								<img src='..".$row['FotoPerfil']."' id='profile-image1'>
+	    								<button type='button' style='margin-top: 10px' class='btn btn-danger btn-xs' onclick='EliminarAmigo(\"".$username."\", \"".$row['UserName']."\")'>Eliminar</button> 
 	    							</div>
-	    							<div class="col-xs-8 col-md-8 info">
+	    							<div class='col-xs-8 col-md-8 info'>
 	    								<div>
-	    									<h3>'.$row['Nombre'].' '.$row['Apellidos'].'</h3>
-	    									<p>@'.$row['UserName'].'</p>
-	    									<p>'.$dato.'</p>
+	    									<h3>".$row['Nombre']." ".$row['Apellidos']."</h3>
+	    									<p>@".$row['UserName']."</p>
+	    									<p>".$dato."</p>
 	    								</div>
 	    								<hr>
 	    							</div>
 	    						</div>
 	    					</div>
-	    				</div>';
+	    				</div>";
 	    				if($cont==2){
 	    					echo $FinRow;
     						$cont=1;
@@ -78,6 +79,9 @@ $username = $_SESSION['usuario'];
 	    					$cont=$cont+1;
     					}
     				};
+    				if($cont==2){
+    					echo $FinRow;
+    				}
     				?>
     			</div>
     			<div class="divAmigosCel">
@@ -115,9 +119,99 @@ $username = $_SESSION['usuario'];
     		</div>
     		
     		<div class="col-ms-12 col-md-4 col-centered Contactos">
-
+    			<div class="row row-centered">
+    				<div class="col-md-12 BuscarAimgos">
+    					<div class="titulo2"><h4>Buscar Amigos</h4></div> 
+    					<div class="searchB">
+    						<input class="form-control" id="buscar" type="text" placeholder="Buscar..">
+    						<button class="btn btn-primary w3-xlarge srch" onclick="buscarAmigos()"><i class="glyphicon glyphicon-search"></i></button>
+    					</div>
+    					<div class="Resultados">
+    						<div id="resultcards" class="row">
+    							
+    						</div>
+    					</div>
+    				</div>
+    			</div>
+    			<div class="row row-centered">
+    				<div class="col-md-12 Solicitudes">
+    					<div class="titulo3"><h4>Solicitudes de Amistad</h4></div>
+    					<div class="Resultados">
+    						<div id="solicitudescards" class="row">
+    							
+    						</div>
+    					</div>
+    				</div>
+    			</div>
     		</div>
     	</div>
     </div>
+    <script type="text/javascript">
+    	$(document).ready(function() {
+    		var cadena="";
+    		$.ajax({
+    			type: "POST",
+    			async: true,
+    			url: "../PHP/SolicitudesAmistad.php",
+    			success: function(result){
+    				mySplitResult=result.split("-");
+    				for(i=0; i < mySplitResult.length-1; i++){
+    					mySplitResult2=mySplitResult[i].split("|");
+    					cadena=cadena+'<div class="well well-sm"> <div class="media"> <div class="col-md-3 imgn"> <img class="minImg" src="..'+mySplitResult2[2]+'"> <button type="button" style="margin-top: 5px" class="btn btn-primary btn-xs">Ver Perfil</button> </div> <div class="col-md-9 media-body"> <h4 class="media-heading">'+mySplitResult2[1]+'</h4> <p>@'+mySplitResult2[0]+'</p> <button type="button" style="margin-top: 5px" class="btn btn-success btn-xs">Aceptar</button> <button type="button" style="margin-top: 5px" class="btn btn-danger btn-xs">Rechazar</button> </div> </div> </div>';
+    				}
+    				document.getElementById("solicitudescards").innerHTML = cadena;
+    			}
+    		});
+		    function solicitudes(){
+		    	var cadena="";
+	    		$.ajax({
+		          type: "POST",
+		          async: true,
+		          url: "../PHP/SolicitudesAmistad.php",
+		          success: function(result){
+		          	mySplitResult=result.split("-");
+		          	for(i=0; i < mySplitResult.length-1; i++){
+		          		mySplitResult2=mySplitResult[i].split("|");
+		          		cadena=cadena+'<div class="well well-sm"> <div class="media"> <div class="col-md-3 imgn"> <img class="minImg" src="..'+mySplitResult2[2]+'"> <button type="button" style="margin-top: 5px" class="btn btn-primary btn-xs">Ver Perfil</button> </div> <div class="col-md-9 media-body"> <h4 class="media-heading">'+mySplitResult2[1]+'</h4> <p>@'+mySplitResult2[0]+'</p> <button type="button" style="margin-top: 5px" class="btn btn-success btn-xs">Aceptar</button> <button type="button" style="margin-top: 5px" class="btn btn-danger btn-xs">Rechazar</button> </div> </div> </div>';
+		          	}
+		          	document.getElementById("solicitudescards").innerHTML = cadena;
+		          }
+		        });
+			}
+		    setInterval(solicitudes, 6000);
+		});
+
+
+
+    	function EliminarAmigo(usuario, amigo){
+    		$.ajax({
+	          type: "POST",
+	          async: false,
+	          url: "../PHP/EliminarAmigo.php",
+	          data: {"postUser": usuario, "postAmigo": amigo},
+	          success: function(result){
+	            location.href='Contactos.php';
+	          }
+	        });
+    	}
+    	function buscarAmigos(){
+    		var busqueda =  document.getElementById("buscar").value;
+    		var cadena="";
+    		$.ajax({
+	          type: "POST",
+	          async: true,
+	          url: "../PHP/BuscarAmigos.php",
+	          data: {"postBusqueda": busqueda},
+	          success: function(result){
+	          	mySplitResult=result.split("-");
+	          	for(i=0; i < mySplitResult.length-1; i++){
+	          		mySplitResult2=mySplitResult[i].split("|");
+	          		cadena=cadena+'<div class="well well-sm"> <div class="media"> <div class="col-md-3 imgn"> <img class="minImg" src="..'+mySplitResult2[2]+'"> </div> <div class="col-md-9 media-body"> <h4 class="media-heading">'+mySplitResult2[1]+'</h4> <p>@'+mySplitResult2[0]+'</p> <button type="button" style="margin-top: 5px" class="btn btn-primary btn-xs">Ver Perfil</button> <button type="button" style="margin-top: 5px" class="btn btn-success btn-xs">Agregar</button> </div> </div> </div>';
+	          	}
+	          	document.getElementById("resultcards").innerHTML = cadena;
+	          }
+	        });
+    	}
+    </script>
   </body> 
 </html>

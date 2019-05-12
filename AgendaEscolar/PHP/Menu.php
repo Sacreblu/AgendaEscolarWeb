@@ -58,6 +58,7 @@
 					<a class="opc" href="../HTML/Contactos.php">
 						<img id="iconno" src="../Complementos/Imagenes/Contactos.png">
 						Contactos
+						<span id="NSolicitudes" title="Solicitudes de Amistad" class="sidebar-badge"></span>
 					</a>
 				</li>
 				<li>
@@ -191,7 +192,27 @@
 		<script type="text/javascript">
 
 // Sidebar toggle----------------
-
+$(document).ready(function() {
+	$.ajax({
+		type: "POST",
+		async: true,
+		url: "../PHP/NumeroSolicitudes.php",
+		success: function(result){
+			document.getElementById("NSolicitudes").innerHTML = result;
+		}
+	});
+	function solicitudes(){
+		$.ajax({
+			type: "POST",
+			async: true,
+			url: "../PHP/NumeroSolicitudes.php",
+			success: function(result){
+				document.getElementById("NSolicitudes").innerHTML = result;
+			}
+		});
+	}
+	setInterval(solicitudes, 6000);
+});
 
 function openMenu(){
 

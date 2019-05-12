@@ -146,6 +146,16 @@ $username = $_SESSION['usuario'];
     		</div>
     	</div>
     </div>
+
+    <!-- Div de advertencia de formulario de Registro" -->
+    <div class="overlay3" id="overlay3" style="display:none;"></div>
+    <div class="box3" id="box3">
+      <a class="boxclose3" id="boxclose3"></a>
+      <h4>¡Mensaje Importante!</h4>
+      <p id="msg"> 
+      </p>
+    </div>
+
     <script type="text/javascript">
     	$(document).ready(function() {
     		var cadena="";
@@ -155,9 +165,9 @@ $username = $_SESSION['usuario'];
     			url: "../PHP/SolicitudesAmistad.php",
     			success: function(result){
     				mySplitResult=result.split("-");
-    				for(i=0; i < mySplitResult.length-1; i++){
+    				for(i=1; i < mySplitResult.length; i++){
     					mySplitResult2=mySplitResult[i].split("|");
-    					cadena=cadena+'<div class="well well-sm"> <div class="media"> <div class="col-md-3 imgn"> <img class="minImg" src="..'+mySplitResult2[2]+'"> <button type="button" style="margin-top: 5px" class="btn btn-primary btn-xs">Ver Perfil</button> </div> <div class="col-md-9 media-body"> <h4 class="media-heading">'+mySplitResult2[1]+'</h4> <p>@'+mySplitResult2[0]+'</p> <button type="button" style="margin-top: 5px" class="btn btn-success btn-xs">Aceptar</button> <button type="button" style="margin-top: 5px" class="btn btn-danger btn-xs">Rechazar</button> </div> </div> </div>';
+    					cadena=cadena+"<div class='well well-sm'> <div class='media'> <div class='col-md-3 imgn'> <img class='minImg' src='.."+mySplitResult2[2]+"'> <button type='button' style='margin-top: 5px' class='btn btn-primary btn-xs'>Ver Perfil</button> </div> <div class='col-md-9 media-body'> <h4 class='media-heading'>"+mySplitResult2[1]+"</h4> <p>@"+mySplitResult2[0]+"</p> <button type='button' style='margin-top: 5px' class='btn btn-success btn-xs' onclick='responderSolicitud(\""+mySplitResult2[0]+"\", \"Aceptar\")'>Aceptar</button> <button type='button' style='margin-top: 5px' class='btn btn-danger btn-xs' onclick='responderSolicitud(\""+mySplitResult2[0]+"\", \"Rechazar\")'>Rechazar</button> </div> </div> </div>";
     				}
     				document.getElementById("solicitudescards").innerHTML = cadena;
     			}
@@ -170,9 +180,9 @@ $username = $_SESSION['usuario'];
 		          url: "../PHP/SolicitudesAmistad.php",
 		          success: function(result){
 		          	mySplitResult=result.split("-");
-		          	for(i=0; i < mySplitResult.length-1; i++){
+		          	for(i=1; i < mySplitResult.length; i++){
 		          		mySplitResult2=mySplitResult[i].split("|");
-		          		cadena=cadena+'<div class="well well-sm"> <div class="media"> <div class="col-md-3 imgn"> <img class="minImg" src="..'+mySplitResult2[2]+'"> <button type="button" style="margin-top: 5px" class="btn btn-primary btn-xs">Ver Perfil</button> </div> <div class="col-md-9 media-body"> <h4 class="media-heading">'+mySplitResult2[1]+'</h4> <p>@'+mySplitResult2[0]+'</p> <button type="button" style="margin-top: 5px" class="btn btn-success btn-xs">Aceptar</button> <button type="button" style="margin-top: 5px" class="btn btn-danger btn-xs">Rechazar</button> </div> </div> </div>';
+		          		cadena=cadena+"<div class='well well-sm'> <div class='media'> <div class='col-md-3 imgn'> <img class='minImg' src='.."+mySplitResult2[2]+"'> <button type='button' style='margin-top: 5px' class='btn btn-primary btn-xs'>Ver Perfil</button> </div> <div class='col-md-9 media-body'> <h4 class='media-heading'>"+mySplitResult2[1]+"</h4> <p>@"+mySplitResult2[0]+"</p> <button type='button' style='margin-top: 5px' class='btn btn-success btn-xs' onclick='responderSolicitud(\""+mySplitResult2[0]+"\", \"Aceptar\")'>Aceptar</button> <button type='button' style='margin-top: 5px' class='btn btn-danger btn-xs' onclick='responderSolicitud(\""+mySplitResult2[0]+"\", \"Rechazar\")'>Rechazar</button> </div> </div> </div>";
 		          	}
 		          	document.getElementById("solicitudescards").innerHTML = cadena;
 		          }
@@ -197,6 +207,10 @@ $username = $_SESSION['usuario'];
     	function buscarAmigos(){
     		var busqueda =  document.getElementById("buscar").value;
     		var cadena="";
+
+    		if(busqueda==""){
+    			return 0;
+    		}
     		$.ajax({
 	          type: "POST",
 	          async: true,
@@ -204,11 +218,57 @@ $username = $_SESSION['usuario'];
 	          data: {"postBusqueda": busqueda},
 	          success: function(result){
 	          	mySplitResult=result.split("-");
-	          	for(i=0; i < mySplitResult.length-1; i++){
+	          	for(i=1; i < mySplitResult.length; i++){
 	          		mySplitResult2=mySplitResult[i].split("|");
-	          		cadena=cadena+'<div class="well well-sm"> <div class="media"> <div class="col-md-3 imgn"> <img class="minImg" src="..'+mySplitResult2[2]+'"> </div> <div class="col-md-9 media-body"> <h4 class="media-heading">'+mySplitResult2[1]+'</h4> <p>@'+mySplitResult2[0]+'</p> <button type="button" style="margin-top: 5px" class="btn btn-primary btn-xs">Ver Perfil</button> <button type="button" style="margin-top: 5px" class="btn btn-success btn-xs">Agregar</button> </div> </div> </div>';
+	          		cadena=cadena+"<div class='well well-sm'> <div class='media'> <div class='col-md-3 imgn'> <img class='minImg' src='.."+mySplitResult2[2]+"'> </div> <div class='col-md-9 media-body'> <h4 class='media-heading'>"+mySplitResult2[1]+"</h4> <p>@"+mySplitResult2[0]+"</p> <button type='button' style='margin-top: 5px' class='btn btn-primary btn-xs'>Ver Perfil</button> <button type='button' style='margin-top: 5px' class='btn btn-success btn-xs' onclick='mandarSolicitud(\""+mySplitResult2[0]+"\")'>Agregar</button> </div> </div> </div>";
 	          	}
 	          	document.getElementById("resultcards").innerHTML = cadena;
+	          }
+	        });
+    	}
+    	function mandarSolicitud(usernameAmigo){
+    		$.ajax({
+	          type: "POST",
+	          async: false,
+	          url: "../PHP/EnviarSolicitud.php",
+	          data: {"postuserAmigo": usernameAmigo},
+	          success: function(result){
+	          	if(result==1){
+	          		$('#msg').html('La solicitud de amistad esta pendiente.');
+	          	}
+	          	if(result==2){
+	          		$('#msg').html('La solicitud de amistad enviada ya ha sido aceptada.');
+	          	}
+	          	if(result==0){
+	          		$('#msg').html('Solicitud de amistad enviada.');
+	          	}
+	    
+					          	
+	          	$(function(){
+	          		$('#overlay3').fadeIn('fast',function(){
+	          			$('#box3').animate({'top':'160px'},500);
+	          		});
+	          		$('#boxclose3').click(function(){
+	          			$('#box3').animate({'top':'-400px'},500,function(){
+	          				$('#overlay3').fadeOut('fast');
+	          			});
+	          		});
+	          	});
+	          }
+	        });
+    	}
+
+    	function responderSolicitud(amigo, respuesta){
+    		$.ajax({
+	          type: "POST",
+	          async: false,
+	          url: "../PHP/ResponderSolicitud.php",
+	          data: {"postuserAmigo": amigo, "postRespuesta": respuesta},
+	          success: function(result){
+	          	alert(result);
+	          	if(result==0){
+	          		location.href='Contactos.php';
+	          	}
 	          }
 	        });
     	}

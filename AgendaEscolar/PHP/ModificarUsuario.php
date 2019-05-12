@@ -26,5 +26,6 @@ session_start([
   	$query = "UPDATE usuarios SET NombreUsuario='".$Nuser."', Contrasena='".$passEncryp."', Nombre='".$nombre."', Apellidos='".$apellidos."', Correo='".$correo."', Telefono='".$tel."', Carrera='".$carrera."', Institucion='".$inst."' WHERE NombreUsuario='".$username."'";
     mysqli_query($con, $query) or die('Consulta fallida: ' . mysqli_error($con));	
   }
+  $_SESSION['usuario'] = $Nuser;
 
 ?>

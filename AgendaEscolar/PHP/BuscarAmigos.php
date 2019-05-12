@@ -16,7 +16,7 @@
 
   $result = mysqli_query($con, $query) or die('Consulta fallida: ' . mysqli_error($con));
   while($row = mysqli_fetch_assoc($result)){
-  	$cad=$cad." ".$row['NombreUsuario']."|".$row['Nombre']." ".$row['Apellidos']."|".$row['FotoPerfil']."-";
+  	$cad=$cad."-".$row['NombreUsuario']."|".$row['Nombre']." ".$row['Apellidos']."|".$row['FotoPerfil'];
   }
 
   echo $cad;

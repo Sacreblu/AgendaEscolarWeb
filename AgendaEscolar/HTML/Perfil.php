@@ -24,7 +24,7 @@ $username = $_SESSION['usuario'];
     <script type="text/javascript" src="../JavaScript/custom-file-input.js"></script>
     <script type="text/javascript" src="../JavaScript/jquery.custom-file-input.js"></script>
     <script type="text/javascript" src="../JavaScript/ValidacionesModificarCuenta.js"></script>
-
+    <script type="text/javascript" src="../JavaScript/push.min.js"></script>
 
     <link href="../CSS/MenuCSS.css" rel="stylesheet">
     <link href="../CSS/Perfil.css" rel="stylesheet">

@@ -23,6 +23,7 @@ $username = $_SESSION['usuario'];
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script type="text/javascript" src="../JavaScript/push.min.js"></script>
 
     <link href="../CSS/MenuCSS.css" rel="stylesheet">
     <link href="../CSS/Contactos.css" rel="stylesheet">
@@ -55,7 +56,7 @@ $username = $_SESSION['usuario'];
     					echo "  
     					<div class='col-sm-12 col-md-6 envoltura'>
 	    					<div class='panel panel-default'>
-	    						<div class='panel-heading'>  <h5>Perfil</h5></div>
+	    						<div class='panel-heading' onclick='verPerfil(\"".$row['UserName']."\")'>  <h5>Perfil</h5></div>
 	    						<div class='panel-body'>
 	    							<div class='col-xs-4 col-md-4 foto'>
 	    								<img src='..".$row['FotoPerfil']."' id='profile-image1'>
@@ -93,26 +94,26 @@ $username = $_SESSION['usuario'];
     					}else{
     						$dato=$row['Telefono'];
     					}
-    					echo '  
-    					<div class="col-sm-12 col-md-6 envoltura">
-	    					<div class="panel panel-default">
-	    						<div class="panel-heading">  <h5>Perfil</h5></div>
-	    						<div class="panel-body">
-	    							<div class=col-xs-4 "col-md-4 foto">
-	    								<img src="..'.$row['FotoPerfil'].'" id="profile-image1" >
-	    								<button type="button"style="margin-top: 10px" class="btn btn-danger btn-xs">Eliminar</button> 
-	    							</div>
-	    							<div class="col-xs-8 col-md-8 info">
-	    								<div>
-	    									<h3>'.$row['Nombre'].' '.$row['Apellidos'].'</h3>
-	    									<p>@'.$row['UserName'].'</p>
-	    									<p>'.$dato.'</p>
-	    								</div>
-	    								<hr>
-	    							</div>
-	    						</div>
-	    					</div>
-	    				</div>';
+    					echo "  
+                        <div class='col-sm-12 col-md-6 envoltura'>
+                            <div class='panel panel-default'>
+                                <div class='panel-heading' onclick='verPerfil(\"".$row['UserName']."\")'>  <h5>Perfil</h5></div>
+                                <div class='panel-body'>
+                                    <div class='col-xs-4 col-md-4 foto'>
+                                        <img src='..".$row['FotoPerfil']."' id='profile-image1'>
+                                        <button type='button' style='margin-top: 10px' class='btn btn-danger btn-xs' onclick='EliminarAmigo(\"".$username."\", \"".$row['UserName']."\")'>Eliminar</button> 
+                                    </div>
+                                    <div class='col-xs-8 col-md-8 info'>
+                                        <div>
+                                            <h3>".$row['Nombre']." ".$row['Apellidos']."</h3>
+                                            <p>@".$row['UserName']."</p>
+                                            <p>".$dato."</p>
+                                        </div>
+                                        <hr>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>";
     				};
     				?>
     			</div>
@@ -167,7 +168,7 @@ $username = $_SESSION['usuario'];
     				mySplitResult=result.split("-");
     				for(i=1; i < mySplitResult.length; i++){
     					mySplitResult2=mySplitResult[i].split("|");
-    					cadena=cadena+"<div class='well well-sm'> <div class='media'> <div class='col-md-3 imgn'> <img class='minImg' src='.."+mySplitResult2[2]+"'> <button type='button' style='margin-top: 5px' class='btn btn-primary btn-xs'>Ver Perfil</button> </div> <div class='col-md-9 media-body'> <h4 class='media-heading'>"+mySplitResult2[1]+"</h4> <p>@"+mySplitResult2[0]+"</p> <button type='button' style='margin-top: 5px' class='btn btn-success btn-xs' onclick='responderSolicitud(\""+mySplitResult2[0]+"\", \"Aceptar\")'>Aceptar</button> <button type='button' style='margin-top: 5px' class='btn btn-danger btn-xs' onclick='responderSolicitud(\""+mySplitResult2[0]+"\", \"Rechazar\")'>Rechazar</button> </div> </div> </div>";
+    					cadena=cadena+"<div class='well well-sm'> <div class='media'> <div class='col-md-3 imgn'> <img class='minImg' src='.."+mySplitResult2[2]+"'> <button type='button' style='margin-top: 5px' class='btn btn-primary btn-xs' onclick='verPerfil(\""+mySplitResult2[0]+"\")'>Ver Perfil</button> </div> <div class='col-md-9 media-body'> <h4 class='media-heading'>"+mySplitResult2[1]+"</h4> <p>@"+mySplitResult2[0]+"</p> <button type='button' style='margin-top: 5px' class='btn btn-success btn-xs' onclick='responderSolicitud(\""+mySplitResult2[0]+"\", \"Aceptar\")'>Aceptar</button> <button type='button' style='margin-top: 5px' class='btn btn-danger btn-xs' onclick='responderSolicitud(\""+mySplitResult2[0]+"\", \"Rechazar\")'>Rechazar</button> </div> </div> </div>";
     				}
     				document.getElementById("solicitudescards").innerHTML = cadena;
     			}
@@ -182,13 +183,13 @@ $username = $_SESSION['usuario'];
 		          	mySplitResult=result.split("-");
 		          	for(i=1; i < mySplitResult.length; i++){
 		          		mySplitResult2=mySplitResult[i].split("|");
-		          		cadena=cadena+"<div class='well well-sm'> <div class='media'> <div class='col-md-3 imgn'> <img class='minImg' src='.."+mySplitResult2[2]+"'> <button type='button' style='margin-top: 5px' class='btn btn-primary btn-xs'>Ver Perfil</button> </div> <div class='col-md-9 media-body'> <h4 class='media-heading'>"+mySplitResult2[1]+"</h4> <p>@"+mySplitResult2[0]+"</p> <button type='button' style='margin-top: 5px' class='btn btn-success btn-xs' onclick='responderSolicitud(\""+mySplitResult2[0]+"\", \"Aceptar\")'>Aceptar</button> <button type='button' style='margin-top: 5px' class='btn btn-danger btn-xs' onclick='responderSolicitud(\""+mySplitResult2[0]+"\", \"Rechazar\")'>Rechazar</button> </div> </div> </div>";
+		          		cadena=cadena+"<div class='well well-sm'> <div class='media'> <div class='col-md-3 imgn'> <img class='minImg' src='.."+mySplitResult2[2]+"'> <button type='button' style='margin-top: 5px' class='btn btn-primary btn-xs' onclick='verPerfil(\""+mySplitResult2[0]+"\")'>Ver Perfil</button> </div> <div class='col-md-9 media-body'> <h4 class='media-heading'>"+mySplitResult2[1]+"</h4> <p>@"+mySplitResult2[0]+"</p> <button type='button' style='margin-top: 5px' class='btn btn-success btn-xs' onclick='responderSolicitud(\""+mySplitResult2[0]+"\", \"Aceptar\")'>Aceptar</button> <button type='button' style='margin-top: 5px' class='btn btn-danger btn-xs' onclick='responderSolicitud(\""+mySplitResult2[0]+"\", \"Rechazar\")'>Rechazar</button> </div> </div> </div>";
 		          	}
 		          	document.getElementById("solicitudescards").innerHTML = cadena;
 		          }
 		        });
 			}
-		    setInterval(solicitudes, 6000);
+		    setInterval(solicitudes, 5000);
 		});
 
 
@@ -196,7 +197,7 @@ $username = $_SESSION['usuario'];
     	function EliminarAmigo(usuario, amigo){
     		$.ajax({
 	          type: "POST",
-	          async: false,
+	          async: true,
 	          url: "../PHP/EliminarAmigo.php",
 	          data: {"postUser": usuario, "postAmigo": amigo},
 	          success: function(result){
@@ -220,7 +221,7 @@ $username = $_SESSION['usuario'];
 	          	mySplitResult=result.split("-");
 	          	for(i=1; i < mySplitResult.length; i++){
 	          		mySplitResult2=mySplitResult[i].split("|");
-	          		cadena=cadena+"<div class='well well-sm'> <div class='media'> <div class='col-md-3 imgn'> <img class='minImg' src='.."+mySplitResult2[2]+"'> </div> <div class='col-md-9 media-body'> <h4 class='media-heading'>"+mySplitResult2[1]+"</h4> <p>@"+mySplitResult2[0]+"</p> <button type='button' style='margin-top: 5px' class='btn btn-primary btn-xs'>Ver Perfil</button> <button type='button' style='margin-top: 5px' class='btn btn-success btn-xs' onclick='mandarSolicitud(\""+mySplitResult2[0]+"\")'>Agregar</button> </div> </div> </div>";
+	          		cadena=cadena+"<div class='well well-sm'> <div class='media'> <div class='col-md-3 imgn'> <img class='minImg' src='.."+mySplitResult2[2]+"'> </div> <div class='col-md-9 media-body'> <h4 class='media-heading'>"+mySplitResult2[1]+"</h4> <p>@"+mySplitResult2[0]+"</p> <button type='button' style='margin-top: 5px' class='btn btn-primary btn-xs'onclick='verPerfil(\""+mySplitResult2[0]+"\")'>Ver Perfil</button> <button type='button' style='margin-top: 5px' class='btn btn-success btn-xs' onclick='mandarSolicitud(\""+mySplitResult2[0]+"\")'>Agregar</button> </div> </div> </div>";
 	          	}
 	          	document.getElementById("resultcards").innerHTML = cadena;
 	          }
@@ -229,7 +230,7 @@ $username = $_SESSION['usuario'];
     	function mandarSolicitud(usernameAmigo){
     		$.ajax({
 	          type: "POST",
-	          async: false,
+	          async: true,
 	          url: "../PHP/EnviarSolicitud.php",
 	          data: {"postuserAmigo": usernameAmigo},
 	          success: function(result){
@@ -261,17 +262,28 @@ $username = $_SESSION['usuario'];
     	function responderSolicitud(amigo, respuesta){
     		$.ajax({
 	          type: "POST",
-	          async: false,
+	          async: true,
 	          url: "../PHP/ResponderSolicitud.php",
 	          data: {"postuserAmigo": amigo, "postRespuesta": respuesta},
 	          success: function(result){
-	          	alert(result);
 	          	if(result==0){
 	          		location.href='Contactos.php';
 	          	}
 	          }
 	        });
     	}
+
+        function verPerfil(amigo){
+            $.ajax({
+              type: "POST",
+              async: true,
+              url: "../PHP/verPerfilAmigo.php",
+              data: {"postuserAmigo": amigo},
+              success: function(result){
+                location.href='Amigo.php';
+              }
+            });
+        }
     </script>
   </body> 
 </html>

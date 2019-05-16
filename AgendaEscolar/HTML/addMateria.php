@@ -473,7 +473,7 @@ $username = $_SESSION['usuario'];
             data: {"postUser": usernamee, "postMateria": materia, "postDia": dia, "NuevaMateria": NuevaMateria, "NuevoDia": NuevoDia, "NuevahrInicio": NuevahrInicio, "NuevahrFin": NuevahrFin, "NuevaAula": NuevaAula},
             success: function(result){
               if(result==1){
-                location.href='AddMateria.php';
+                location.href='addMateria.php';
               }
             }
           });

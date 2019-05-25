@@ -62,7 +62,7 @@
 					</a>
 				</li>
 				<li>
-					<a class="opc" href="#">
+					<a class="opc" href="../HTML/addActividad.php">
 						<img id="iconno" src="../Complementos/Imagenes/Nota.png">
 						<!--<i class="sidebar-icon md-inbox"></i>-->
 						+ Actividad
@@ -190,6 +190,9 @@
 		</aside>
 
 		<script type="text/javascript">
+			window.onload = function(){
+				Push.Permission.request();
+			}
 
 // Sidebar toggle----------------
 $(document).ready(function() {
@@ -212,6 +215,42 @@ $(document).ready(function() {
 		});
 	}
 	setInterval(solicitudes, 6000);
+});
+
+function Notificaciones(){
+	$.ajax({
+		type: "POST",
+		async: true,
+		url: "../PHP/ConsultaNotificaciones.php",
+		success: function(result){
+			if(result!=""){
+				mySplitResult=result.split("-");
+				for(i=1; i < mySplitResult.length; i++){
+					mySplitResult2=mySplitResult[i].split("|");
+					$.ajax({
+						type: "POST",
+						async: false,
+						data: {"postSolicitante": mySplitResult2[0]},
+						url: "../PHP/ActualizarNotificacionSolicitud.php"
+					});
+					Push.create('Notificación',{
+						body : mySplitResult2[0]+' te ha enviado una solicitud de amistad',
+						icon : '..'+mySplitResult2[1],
+						timeout : 6000,
+						vibrate : [100, 100, 100],
+						onClick : function(){
+							location.href='Contactos.php';
+						}
+					});
+					
+				}	
+			}	
+		}
+	});
+}
+
+$(document).ready(function(){
+	setInterval(Notificaciones, 6000);
 });
 
 function openMenu(){

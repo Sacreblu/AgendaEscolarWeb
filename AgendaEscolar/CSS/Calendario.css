@@ -1,0 +1,39 @@
+#calendario th{
+    background: linear-gradient(to bottom, rgb(37,139,27), rgb(39,149,28), rgb(39,119,31));
+    color: white;
+    font-size: 15px;
+}
+
+.fc-header-toolbar{
+	background-color: #E9E9E9;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	padding: 0px 8px 0px 8px;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 13px;
+}
+
+.fc td{
+	background-color: white;
+	border-color: rgb(198,198,198);
+}
+
+.fc-view-container{
+	margin-top: -14px;
+	background-color: white;
+}
+.fc-button-group, .fc-right, .fc-center h2{
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+
+.fc-center h2{
+	font-size: 20px;
+	color: #555;
+}
+
+
+.fc-unthemed td.fc-today{
+	background:#BECEEE;
+}

@@ -94,8 +94,8 @@ $username = $_SESSION['usuario'];
           <div class="col-md-12">
             <select id="hrFin" name="hrFin" class="form-control">
               <option value="default">Elige una hora</option>
-              <option value="8">7:59</option>
-              <option value="9">8:59</option>
+              <option value="08">7:59</option>
+              <option value="09">8:59</option>
               <option value="10">9:59</option>
               <option value="11">10:59</option>
               <option value="12">11:59</option>
@@ -473,7 +473,7 @@ $username = $_SESSION['usuario'];
             data: {"postUser": usernamee, "postMateria": materia, "postDia": dia, "NuevaMateria": NuevaMateria, "NuevoDia": NuevoDia, "NuevahrInicio": NuevahrInicio, "NuevahrFin": NuevahrFin, "NuevaAula": NuevaAula},
             success: function(result){
               if(result==1){
-                location.href='AddMateria.php';
+                location.href='addMateria.php';
               }
             }
           });

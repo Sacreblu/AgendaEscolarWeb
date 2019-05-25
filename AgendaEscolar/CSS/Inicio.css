@@ -8,7 +8,8 @@ body {
 #calendario{
 	background-color: transparent;
 	height: auto;
-	padding-top: 65px;
+	padding-top: 105px;
+	padding-right: 0px;
 	margin: 0px;
 }
 
@@ -47,4 +48,20 @@ body {
 	#calendario{
 		display: none;
 	}
+}
+
+.modal-dialog{
+	width: 450px;
+	max-height: 595px;
+	margin-bottom: 15px;
+	margin-top: 15px;
+}
+
+.modal-body{
+	max-height: 543px;
+	overflow: auto;
+}
+
+.modal-title{
+	display: inline;
 }
